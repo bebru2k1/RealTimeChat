@@ -1,0 +1,42 @@
+$color-secondary: #ff0a78;
+$color-tertiary: #ffe100;
+$color-alert: #ff8000;
+$color-decorative: #6ac;
+$color-success: #0c8;
+$syntax-fn: #00beff;
+.singleuserview {
+  display: flex;
+  margin-top: 20px;
+  border-radius: 10px;
+  align-items: center;
+  padding: 10px;
+}
+.singleuserview:nth-child(1) {
+  background-color: $color-decorative;
+}
+.singleuserview:nth-child(2) {
+  background-color: $color-tertiary;
+}
+.singleuserview:nth-child(3) {
+  background-color: $color-success;
+  color: white;
+}
+.userview {
+  width: 30%;
+  &__img {
+    & img {
+      width: 7rem;
+      height: 7rem;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  &__name {
+    font-weight: bold;
+  }
+}
+.usercontent {
+  width: 70%;
+  text-align: left;
+  font-size: 1.8rem;
+}

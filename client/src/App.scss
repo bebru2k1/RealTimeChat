@@ -1,0 +1,60 @@
+$color-text: #fff;
+$color-background: #0e141b;
+$color-blurred-background: rgba(14, 20, 27, 0.85);
+$color-primary: #5773ff;
+$color-secondary: #ff0a78;
+$color-tertiary: #ffe100;
+$color-decorative: #6ac;
+$color-muted: #182635;
+$color-muted-background: rgba(24, 38, 53, 0.85);
+$color-info: #5773ff;
+$color-success: #0c8;
+$color-success-background: rgba(0, 204, 136, 0.1);
+$color-error: #fa3879;
+$color-error-background: rgba(214, 6, 75, 0.1);
+$color-alert: #ff8000;
+$color-alert-background: rgba(255, 162, 0, 0.1);
+$color-venn-0: #2a00ff;
+$color-venn-1: #00ffea;
+$color-gray-100: #2b333b;
+$color-gray-200: #364049;
+$color-gray-300: #5c6670;
+$color-gray-400: #68737d;
+$color-gray-500: #757f8a;
+$color-gray-600: #7e8c9a;
+$color-gray-700: #9ca8b4;
+$color-gray-900: #d9e0e8;
+$color-gray-1000: #f2f5f7;
+$color-subtle-background: #0e141b;
+$color-subtle-floating: #1e262f;
+$color-homepage-light: rgba(179, 230, 255, 0);
+$color-homepage-dark: rgba(179, 230, 255, 0.1);
+$color-homepage-bg: #0e141b;
+$syntax-bg: #151f28;
+$syntax-highlight: #202e3c;
+$syntax-txt: #fff;
+$syntax-comment: #6c8998;
+$syntax-prop: #ff39a8;
+$syntax-bool: #ffd600;
+$syntax-val: #61747d;
+$syntax-str: #9b6dff;
+$syntax-name: #c653ff;
+$syntax-del: #f55;
+$syntax-regex: gold;
+$syntax-fn: #00beff;
+$prefers-dark: true;
+
+.App {
+  text-align: center;
+  font-family: "Karla", "Quicksand", serif;
+
+  margin: 0 auto;
+  font-size: 1.6rem;
+}
+html {
+  font-size: 62.5%;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
