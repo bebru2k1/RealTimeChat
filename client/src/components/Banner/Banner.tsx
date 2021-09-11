@@ -56,7 +56,7 @@ function Banner() {
             consectetur repellendus eveniet libero esse quo accusantium? Quas
             quibusdam unde quae. Nam!
           </p>
-        </li>
+          rm -fr www/.git        </li>
       </ul>
     </div>
   );

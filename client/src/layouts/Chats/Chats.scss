@@ -1,0 +1,91 @@
+$padding-user: 20px;
+$padding-header: 10px;
+$width-user: 400px;
+$color-decorative: #6ac;
+$color-gray-900: #d9e0e8;
+
+.chats {
+  &__user {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $width-user;
+    padding-left: $padding-user;
+    padding-right: $padding-user;
+    margin-top: 20px;
+  }
+  &__user__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-header;
+    font-weight: bold;
+    position: relative;
+
+    &__left {
+      display: flex;
+      align-items: center;
+      &__icon {
+        width: 50px;
+      }
+      & span {
+        color: $color-decorative;
+        font-size: 2rem;
+        margin-left: 10px;
+      }
+    }
+    &__right {
+      &__image {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+      }
+    }
+    &__right::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgb(0, 207, 69);
+      display: block;
+      position: absolute;
+      bottom: $padding-header + 1px;
+      right: $padding-header + 1px;
+    }
+  }
+  &__user__container {
+    margin-top: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    &__image {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    &__username {
+      font-weight: bold;
+      font-size: 2.8rem;
+      padding: 10px;
+      color: $color-decorative;
+    }
+    &__setting {
+      text-align: center;
+    }
+  }
+  &__user__usermess {
+    margin-top: 20px;
+    padding: 20px 0;
+    // overflow-y: scroll;
+  }
+  &__message {
+    margin-left: $width-user + $padding-user + $padding-user;
+  }
+}
+.chats .bordergray {
+  background-color: $color-gray-900;
+  border-radius: 20px;
+}

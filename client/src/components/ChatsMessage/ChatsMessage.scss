@@ -1,0 +1,25 @@
+.chatmessage {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  &__header {
+  }
+  &__header__image {
+    & img {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &__header__name {
+  }
+  &__content {
+  }
+  &__feature {
+  }
+  &__inputmess {
+  }
+}
