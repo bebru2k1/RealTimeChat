@@ -32,9 +32,6 @@ function SingleUserMessage({
       </div>
       <div className="usermessage__right">
         <p className="usermessage__right__name">{name}</p>
-        <p className="usermessage__right__message">
-          Lorem ipsum dolor sit amet
-        </p>
       </div>
     </div>
   );

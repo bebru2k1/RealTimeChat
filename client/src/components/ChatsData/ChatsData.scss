@@ -1,0 +1,38 @@
+$width-chats: 100%;
+
+.chats__data {
+  width: 100%;
+  margin-top: 20px;
+  padding: 0 20px;
+  &__info {
+    padding: 20px 0;
+    &__image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    &__gmail {
+    }
+    &__username {
+    }
+  }
+
+  &__olddata {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    &__title {
+      font-weight: bold;
+    }
+    &__oldimage {
+      border-radius: 5px;
+      width: calc((#{$width-chats} - 20px) / 2);
+      padding: 5px;
+      &__image {
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+  }
+}

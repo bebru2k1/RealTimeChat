@@ -1,0 +1,49 @@
+$color-gray-700: #9ca8b4;
+.message {
+  display: flex;
+  align-items: start;
+  margin: 10px 0;
+  padding: 20px;
+  &__user {
+    &__image {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  &__message {
+    margin-left: 10px;
+  }
+  &__message__content {
+    border-radius: 10px;
+    max-height: 200px;
+    background-color: white;
+    padding: 15px 10px;
+  }
+  &__message__time {
+    opacity: 0.5;
+    font-size: 1.2rem;
+  }
+}
+.message.own {
+  justify-content: end;
+  .message__user {
+    order: 2;
+  }
+  .message__message {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+  .message__message__time {
+    opacity: 0.5;
+    text-align: right;
+  }
+  .message__message__content {
+    border-radius: 10px;
+    max-height: 200px;
+    background-color: black;
+    padding: 15px 10px;
+    color: white;
+  }
+}

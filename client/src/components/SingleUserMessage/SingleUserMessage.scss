@@ -1,14 +1,14 @@
-$color-gray-700: #9ca8b4;
+$color-gray-1000: #f2f5f7;
 .usermessage {
   display: flex;
   align-items: center;
   padding: 10px;
-
+  cursor: pointer;
   &__left {
     position: relative;
     &__image {
-      width: 6rem;
-      height: 6rem;
+      width: 5rem;
+      height: 5rem;
       object-fit: cover;
       border-radius: 50%;
       display: block;
@@ -38,5 +38,6 @@ $color-gray-700: #9ca8b4;
   }
 }
 .usermessage.active {
-  background-color: $color-gray-700;
+  background-color: $color-gray-1000;
+  font-weight: bold;
 }

@@ -5,6 +5,7 @@ import SingleUserMessage from "../../components/SingleUserMessage/SingleUserMess
 import { dataUser } from "../../configs/data";
 import ChatsMessage from "../../components/ChatsMessage/ChatsMessage";
 import * as Icon from "react-feather";
+import ChatsData from "../../components/ChatsData/ChatsData";
 
 function Chats() {
   // useEffect(() => {
@@ -21,7 +22,7 @@ function Chats() {
   return (
     <div className="chats">
       <div className="chats__user">
-        <div className="chats__user__header bordergray">
+        <div className="chats__user__header ">
           <div className="chats__user__header__left">
             <img
               src={"https://cdn-icons-png.flaticon.com/512/893/893268.png"}
@@ -40,7 +41,7 @@ function Chats() {
             />
           </div>
         </div>
-        <div className="chats__user__container bordergray">
+        <div className="chats__user__container  bordergray">
           <img
             src={
               "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
@@ -49,15 +50,42 @@ function Chats() {
             className="chats__user__container__image"
           />
           <p className="chats__user__container__username">Joshn</p>
+          <p className="chats__user__container__content">Hi My Name Joshn</p>
+
           <div
             className="chats__user__container__setting boxed"
-            style={{ color: "rgb(52, 175, 236)", margin: "0 auto" }}
+            style={{
+              color: "rgb(52, 175, 236)",
+              margin: "0 auto",
+            }}
           >
             <Icon.Settings />
           </div>
         </div>
-        <div className="chats__user__usermess bordergray">
-          <p className="chats__user__usermess__title">Friend Online</p>
+        <div className="chats__user__search">
+          <input
+            type="text"
+            className="chats__user__search__input"
+            placeholder="Search"
+          />
+        </div>
+        <div className="chats__user__usermess ">
+          <p className="chats__user__usermess__title">
+            Friend Online{" "}
+            <span
+              className="boxed"
+              style={{
+                color: "rgb(0, 207, 69)",
+                display: "inline-flex",
+                fontSize: "1.4rem",
+                width: "20px",
+                height: "20px",
+              }}
+            >
+              6
+            </span>
+          </p>
+
           {dataUser.map((data, index) => (
             <SingleUserMessage
               key={index}
@@ -66,13 +94,15 @@ function Chats() {
               name={data.name}
               handleClick={handleClick}
               idUser={idUser}
+              className="chats__user__usermess__singleuser"
             />
           ))}
         </div>
       </div>
-      <div className="chats__message">
-        <ChatsMessage id={idUser} />
-      </div>
+
+      <ChatsMessage id={idUser} />
+
+      <ChatsData id={idUser} className="chats__data" />
     </div>
   );
 }

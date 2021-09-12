@@ -1,16 +1,16 @@
 $padding-user: 20px;
 $padding-header: 10px;
-$width-user: 400px;
+$width-user: 500px;
 $color-decorative: #6ac;
 $color-gray-900: #d9e0e8;
+$color-gray-1000: #f2f5f7;
 
 .chats {
+  display: flex;
+  justify-content: space-between;
+
   &__user {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: $width-user;
+    flex-basis: $width-user;
     padding-left: $padding-user;
     padding-right: $padding-user;
     margin-top: 20px;
@@ -58,13 +58,13 @@ $color-gray-900: #d9e0e8;
   }
   &__user__container {
     margin-top: 20px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     &__image {
-      width: 200px;
-      height: 200px;
+      width: 100px;
+      height: 100px;
       object-fit: cover;
-      border-radius: 20px;
+      border-radius: 50%;
     }
     &__username {
       font-weight: bold;
@@ -77,15 +77,48 @@ $color-gray-900: #d9e0e8;
     }
   }
   &__user__usermess {
-    margin-top: 20px;
     padding: 20px 0;
-    // overflow-y: scroll;
+
+    &__title {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: left;
+      padding-bottom: 20px;
+    }
+    &__singleuser {
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+  }
+  &__user__search {
+    margin-top: 20px;
+
+    &__input {
+      padding: 10px;
+      width: 80%;
+      padding: 10px;
+      padding-left: 20px;
+      border: 1px solid rgb(190, 190, 190);
+      outline: none;
+      border-radius: 10px;
+    }
+    &__input:focus {
+      border-radius: 10px;
+      border: 1px solid $color-decorative;
+    }
   }
   &__message {
-    margin-left: $width-user + $padding-user + $padding-user;
+    background-color: $color-gray-900;
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 20px;
+  }
+  &__data {
+    flex-basis: $width-user;
   }
 }
 .chats .bordergray {
-  background-color: $color-gray-900;
+  background-color: $color-gray-1000;
   border-radius: 20px;
 }
