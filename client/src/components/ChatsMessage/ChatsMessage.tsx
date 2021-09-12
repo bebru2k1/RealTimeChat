@@ -16,6 +16,10 @@ function ChatsMessage({ id }: ChatsMessageProps) {
       <Message own={true} />
       <Message own={false} />
       <Message own={true} />
+      <Message own={false} />
+      <Message own={true} />
+      <Message own={false} />
+      <Message own={true} />
 
       <div className="chats__message__inputmess">
         <Icon.Link className="chats__message__inputmess__link" />

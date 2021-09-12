@@ -4,16 +4,20 @@ $width-user: 500px;
 $color-decorative: #6ac;
 $color-gray-900: #d9e0e8;
 $color-gray-1000: #f2f5f7;
-
+$height-user-header: 50px;
+$height-user-container: 250px;
+$height-user-search: 40px;
+$height-chats: 100vh;
 .chats {
   display: flex;
   justify-content: space-between;
-
+  max-height: $height-chats;
   &__user {
     flex-basis: $width-user;
     padding-left: $padding-user;
     padding-right: $padding-user;
     margin-top: 20px;
+    max-height: $height-chats;
   }
   &__user__header {
     display: flex;
@@ -22,7 +26,7 @@ $color-gray-1000: #f2f5f7;
     padding: $padding-header;
     font-weight: bold;
     position: relative;
-
+    height: $height-user-header;
     &__left {
       display: flex;
       align-items: center;
@@ -60,6 +64,7 @@ $color-gray-1000: #f2f5f7;
     margin-top: 20px;
     padding-top: 30px;
     padding-bottom: 30px;
+    height: $height-user-container;
     &__image {
       width: 100px;
       height: 100px;
@@ -78,7 +83,8 @@ $color-gray-1000: #f2f5f7;
   }
   &__user__usermess {
     padding: 20px 0;
-
+    height: calc(#{$height-chats} - 520px);
+    overflow-y: scroll;
     &__title {
       font-size: 2rem;
       font-weight: bold;
@@ -93,7 +99,7 @@ $color-gray-1000: #f2f5f7;
   }
   &__user__search {
     margin-top: 20px;
-
+    height: $height-user-search;
     &__input {
       padding: 10px;
       width: 80%;
