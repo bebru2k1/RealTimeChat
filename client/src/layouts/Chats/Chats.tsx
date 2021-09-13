@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import "./Chats.scss";
 import socket from "../../configs/socket";
 import SingleUserMessage from "../../components/SingleUserMessage/SingleUserMessage";
@@ -8,12 +8,42 @@ import * as Icon from "react-feather";
 import ChatsData from "../../components/ChatsData/ChatsData";
 
 function Chats() {
-  // useEffect(() => {
-  //   socket.on("connect", () => {
-  //     socket.emit("add-friend", "Ahihi");
-  //   });
-  // }, []);
-  console.log(dataUser);
+  const [mess, setMess] = useState<{ id: string; message: string }[]>([]);
+  const [message, setMessage] = useState<string>("");
+  const [idSocket, setIdSocket] = useState<string>("");
+
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("connect Client success");
+    });
+
+    socket.on("getId", (id: string) => {
+      setIdSocket(id);
+    });
+
+    socket.on("sentDataServer", (data) => {
+      console.log(data);
+      setMess((messageOld) => [...messageOld, data]);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  console.log(mess);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (message === "") {
+      return;
+    }
+    socket.emit("sentDataClient", {
+      id: idSocket,
+      message,
+    });
+  };
+
   const ID_USER_DEFAULT = 1;
   const [idUser, setIdUser] = useState(ID_USER_DEFAULT);
   const handleClick = (id: number): void => {
@@ -100,9 +130,15 @@ function Chats() {
         </div>
       </div>
 
-      <ChatsMessage id={idUser} />
+      <ChatsMessage
+        idUser={idUser}
+        idSocket={idSocket}
+        setMessage={setMessage}
+        handleSubmit={handleSubmit}
+        message={mess}
+      />
 
-      <ChatsData id={idUser} className="chats__data" />
+      {/* <ChatsData id={idUser} className="chats__data" /> */}
     </div>
   );
 }

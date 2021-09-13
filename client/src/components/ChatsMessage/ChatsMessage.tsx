@@ -1,40 +1,52 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent } from "react";
 import { dataUser } from "../../configs/data";
 import "./ChatsMessage.scss";
 import * as Icon from "react-feather";
 import Message from "../Message/Message";
 interface ChatsMessageProps {
-  id: number;
+  idUser: number;
+  setMessage: (value: string) => void;
+  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  message: { id: string; message: string }[];
+  idSocket: string;
 }
-function ChatsMessage({ id }: ChatsMessageProps) {
-  const user = dataUser.filter((user) => user.id === id);
+function ChatsMessage({
+  idUser,
+  setMessage,
+  handleSubmit,
+  message,
+  idSocket,
+}: ChatsMessageProps) {
+  const user = dataUser.filter((user) => user.id === idUser);
+  const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+    setMessage(event.target.value);
+  };
   return (
     <div className="chats__message">
-      <Message own={false} />
-      <Message own={true} />
-      <Message own={false} />
-      <Message own={true} />
-      <Message own={false} />
-      <Message own={true} />
-      <Message own={false} />
-      <Message own={true} />
-      <Message own={false} />
-      <Message own={true} />
+      {message.map((mess) => (
+        <Message own={mess.id === idSocket} message={mess.message} />
+      ))}
 
-      <div className="chats__message__inputmess">
+      <form
+        className="chats__message__inputmess"
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <Icon.Link className="chats__message__inputmess__link" />
         <input
           type="text"
           className="chats__message__inputmess__input"
           placeholder="Enter your message here"
+          onChange={(e: ChangeEvent<HTMLInputElement>): void =>
+            handleChangeInput(e)
+          }
         />
-        <div className="chats__message__inputmess__sendicon">
+        <button type="submit" className="chats__message__inputmess__sendicon">
           <span className="chats__message__inputmess__sendicon__text">
             Send
           </span>
           <Icon.Send className="chats__message__inputmess__sendicon__icon" />
-        </div>
-      </div>
+        </button>
+      </form>
     </div>
   );
 }

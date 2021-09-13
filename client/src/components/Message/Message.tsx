@@ -2,8 +2,9 @@ import React from "react";
 import "./Message.scss";
 interface MessageProps {
   own: boolean;
+  message: string;
 }
-function Message({ own }: MessageProps) {
+function Message({ own, message }: MessageProps) {
   return (
     <div className={own ? `message own` : "message"}>
       <div className="message__user">
@@ -16,9 +17,7 @@ function Message({ own }: MessageProps) {
         />
       </div>
       <div className="message__message">
-        <div className="message__message__content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </div>
+        <div className="message__message__content">{message}</div>
         <div className="message__message__time">1 year ago</div>
       </div>
     </div>

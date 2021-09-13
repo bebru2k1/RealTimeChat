@@ -1,1 +1,1 @@
-GET http://localhost:5000/
+GET http://localhost:3000/socket.io/?EIO=4&transport=polling&t=NlSyGT5

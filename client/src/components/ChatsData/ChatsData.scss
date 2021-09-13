@@ -4,6 +4,8 @@ $width-chats: 100%;
   width: 100%;
   margin-top: 20px;
   padding: 0 20px;
+  overflow-y: scroll;
+
   &__info {
     padding: 20px 0;
     &__image {

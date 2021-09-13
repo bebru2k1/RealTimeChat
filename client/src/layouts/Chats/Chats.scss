@@ -122,6 +122,7 @@ $height-chats: 100vh;
   }
   &__data {
     flex-basis: $width-user;
+    height: 100vh;
   }
 }
 .chats .bordergray {
