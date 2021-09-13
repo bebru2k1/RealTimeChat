@@ -1,0 +1,107 @@
+$color-secondary: #ff0a78;
+$color-tertiary: #ffe100;
+$color-primary: #5773ff;
+$color-decorative: #6ac;
+.home {
+  &__header {
+    background-color: black;
+    font-size: 50px;
+    padding: 100px;
+    font-weight: bold;
+    color: white;
+  }
+  &__container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  &__container__left {
+    width: 70%;
+    padding: 20px;
+  }
+  &__container__right {
+    width: 30%;
+    text-align: left;
+
+    padding: 20px;
+    border-left: 2px solid rgba(102, 170, 204, 0.5);
+  }
+  &__container__right__header {
+    &__signup {
+      cursor: pointer;
+    }
+    &__signup {
+      margin-top: 20px;
+      border: 2px solid $color-primary;
+      background-color: $color-primary;
+      width: 80px;
+      padding: 5px;
+      border-radius: 5px;
+      color: black;
+      cursor: pointer;
+      transition: 0.2s ease-in all;
+      text-align: center;
+      color: white;
+    }
+  }
+  &__container__right__form {
+    width: 100%;
+    margin-top: 40px;
+
+    &__emailtext {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+    &__emailinput {
+      margin-bottom: 10px;
+    }
+    &__passwordtext {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+    &__passwordinput {
+    }
+    &__input {
+      margin-bottom: 10px;
+      width: 90%;
+      padding: 10px;
+      border: 2px solid rgb(190, 190, 190);
+      outline: none;
+      border-radius: 5px;
+      // border: 2px solid $color-secondary;
+    }
+    &__input:focus {
+      border-radius: 5px;
+      border: 2px solid $color-decorative;
+    }
+
+    &__button {
+      margin-top: 20px;
+      border: 2px solid $color-decorative;
+      // background-color: white;
+      width: 80px;
+      padding: 10px;
+      border-radius: 5px;
+      color: black;
+      cursor: pointer;
+      transition: 0.2s ease-in all;
+      text-align: center;
+    }
+    &__button:hover {
+      background-color: $color-decorative;
+      color: white;
+    }
+  }
+}
+
+.home-fontsize30 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.home-opacity {
+  opacity: 0.7;
+}

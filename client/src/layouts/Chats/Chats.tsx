@@ -6,32 +6,33 @@ import { dataUser } from "../../configs/data";
 import ChatsMessage from "../../components/ChatsMessage/ChatsMessage";
 import * as Icon from "react-feather";
 import ChatsData from "../../components/ChatsData/ChatsData";
+import { Link } from "react-router-dom";
 
 function Chats() {
   const [mess, setMess] = useState<{ id: string; message: string }[]>([]);
   const [message, setMessage] = useState<string>("");
   const [idSocket, setIdSocket] = useState<string>("");
 
-  useEffect(() => {
-    socket.on("connect", () => {
-      console.log("connect Client success");
-    });
+  // useEffect(() => {
+  //   socket.on("connect", () => {
+  //     console.log("connect Client success");
+  //   });
 
-    socket.on("getId", (id: string) => {
-      setIdSocket(id);
-    });
+  //   socket.on("getId", (id: string) => {
+  //     setIdSocket(id);
+  //   });
 
-    socket.on("sentDataServer", (data) => {
-      console.log(data);
-      setMess((messageOld) => [...messageOld, data]);
-    });
+  //   socket.on("sentDataServer", (data) => {
+  //     console.log(data);
+  //     setMess((messageOld) => [...messageOld, data]);
+  //   });
 
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
+  //   return () => {
+  //     socket.disconnect();
+  //   };
+  // }, []);
 
-  console.log(mess);
+  console.log(message);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,6 +43,7 @@ function Chats() {
       id: idSocket,
       message,
     });
+    setMessage("");
   };
 
   const ID_USER_DEFAULT = 1;
@@ -53,14 +55,14 @@ function Chats() {
     <div className="chats">
       <div className="chats__user">
         <div className="chats__user__header ">
-          <div className="chats__user__header__left">
+          <Link to="/" className="chats__user__header__left">
             <img
               src={"https://cdn-icons-png.flaticon.com/512/893/893268.png"}
               alt=""
               className="chats__user__header__left__icon"
             />
             <span>Chats</span>
-          </div>
+          </Link>
           <div className="chats__user__header__right">
             <img
               src={
@@ -136,6 +138,7 @@ function Chats() {
         setMessage={setMessage}
         handleSubmit={handleSubmit}
         message={mess}
+        messageInput={message}
       />
 
       {/* <ChatsData id={idUser} className="chats__data" /> */}

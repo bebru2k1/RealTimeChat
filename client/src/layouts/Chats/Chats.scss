@@ -28,6 +28,7 @@ $height-chats: 100vh;
     position: relative;
     height: $height-user-header;
     &__left {
+      text-decoration: none;
       display: flex;
       align-items: center;
       &__icon {

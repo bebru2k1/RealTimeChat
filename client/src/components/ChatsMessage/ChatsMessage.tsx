@@ -9,6 +9,7 @@ interface ChatsMessageProps {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   message: { id: string; message: string }[];
   idSocket: string;
+  messageInput: string;
 }
 function ChatsMessage({
   idUser,
@@ -16,6 +17,7 @@ function ChatsMessage({
   handleSubmit,
   message,
   idSocket,
+  messageInput,
 }: ChatsMessageProps) {
   const user = dataUser.filter((user) => user.id === idUser);
   const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,8 +25,12 @@ function ChatsMessage({
   };
   return (
     <div className="chats__message">
-      {message.map((mess) => (
-        <Message own={mess.id === idSocket} message={mess.message} />
+      {message.map((mess, index) => (
+        <Message
+          key={index}
+          own={mess.id === idSocket}
+          message={mess.message}
+        />
       ))}
 
       <form
@@ -36,6 +42,7 @@ function ChatsMessage({
           type="text"
           className="chats__message__inputmess__input"
           placeholder="Enter your message here"
+          value={messageInput}
           onChange={(e: ChangeEvent<HTMLInputElement>): void =>
             handleChangeInput(e)
           }

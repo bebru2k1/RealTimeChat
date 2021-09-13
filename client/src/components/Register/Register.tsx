@@ -1,42 +1,40 @@
-import React, {
-  ChangeEvent,
-  Dispatch,
-  FormEvent,
-  SetStateAction,
-  useState,
-} from "react";
-interface LoginProps {
+import React, { ChangeEvent, FormEvent, useState } from "react";
+
+interface RegisterProps {
   setTypeSign: (value: "signin" | "signup") => void;
 }
-interface DataLogin {
+interface DataRegister {
   email: string;
   password: string;
+  repassword: string;
 }
-function Login({ setTypeSign }: LoginProps) {
-  const [dataForm, setDataForm] = useState<DataLogin>({
+function Register({ setTypeSign }: RegisterProps) {
+  const [dataForm, setDataForm] = useState<DataRegister>({
     email: "",
     password: "",
+    repassword: "",
   });
   const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
   const handleChangForm = (e: ChangeEvent<HTMLInputElement>) => {
     setDataForm({ ...dataForm, [e.target.name]: e.target.value } as {
-      [K in keyof DataLogin]: DataLogin[K];
+      [K in keyof DataRegister]: DataRegister[K];
     });
   };
+  console.log(dataForm);
   return (
     <div className="home__container__right">
       <div className="home__container__right__header">
         <p className="home-opacity">Start For Free</p>
         <p className="home-fontsize30">Sign up to AURCHAT</p>
         <p className="home-opacity ">
-          No account ?{" "}
+          You have account ?{" "}
           <span
             className="home__container__right__header__signup"
-            onClick={() => setTypeSign("signup")}
+            onClick={() => setTypeSign("signin")}
           >
-            SignUp
+            SignIn
           </span>
         </p>
       </div>
@@ -50,27 +48,36 @@ function Login({ setTypeSign }: LoginProps) {
         <p className="home__container__right__form__emailtext">E-mail</p>
         <input
           onChange={(e) => handleChangForm(e)}
-          value={dataForm.email}
           name="email"
           type="text"
           placeholder="name@gmail.com"
           className="home__container__right__form__emailinput home__container__right__form__input"
+          value={dataForm.email}
         />
         <p className="home__container__right__form__passwordtext">Password</p>
         <input
           onChange={(e) => handleChangForm(e)}
-          value={dataForm.password}
-          name="password"
           type="password"
-          placeholder=""
+          name="password"
+          placeholder="6+ characters"
           className="home__container__right__form__passwordinput home__container__right__form__input"
+          value={dataForm.password}
+        />
+        <p className="home__container__right__form__passwordtext">Password</p>
+        <input
+          onChange={(e) => handleChangForm(e)}
+          type="password"
+          name="repassword"
+          placeholder="6+ characters"
+          className="home__container__right__form__passwordinput home__container__right__form__input"
+          value={dataForm.repassword}
         />
         <button className="home__container__right__form__button">
-          Sign In
+          Sign Up
         </button>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default Register;

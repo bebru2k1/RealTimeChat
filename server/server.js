@@ -22,7 +22,7 @@ const io = require('socket.io')(server, {
     }
 })
 io.on("connection", (socket) => {
-    console.log('Run Socket.io')
+
     socket.emit('getId', socket.id)
 
     socket.on("sentDataClient", (data) => {
