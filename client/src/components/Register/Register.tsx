@@ -48,11 +48,11 @@ function Register({ setTypeSign }: RegisterProps) {
         <p className="home__container__right__form__emailtext">E-mail</p>
         <input
           onChange={(e) => handleChangForm(e)}
+          value={dataForm.email}
           name="email"
           type="text"
           placeholder="name@gmail.com"
           className="home__container__right__form__emailinput home__container__right__form__input"
-          value={dataForm.email}
         />
         <p className="home__container__right__form__passwordtext">Password</p>
         <input
@@ -72,7 +72,7 @@ function Register({ setTypeSign }: RegisterProps) {
           className="home__container__right__form__passwordinput home__container__right__form__input"
           value={dataForm.repassword}
         />
-        <button className="home__container__right__form__button">
+        <button type="submit" className="home__container__right__form__button">
           Sign Up
         </button>
       </form>

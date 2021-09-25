@@ -1,1 +1,16 @@
-GET http://localhost:3000/socket.io/?EIO=4&transport=polling&t=NlSyGT5
+POST http://localhost:5000/v1/api/user/signup
+Content-Type: application/json
+
+{
+    "email":"toxic4",
+    "password":"ahihi"
+}
+
+###
+POST  http://localhost:5000/v1/api/user/signin
+Content-Type: application/json
+
+{
+    "email":"toxic3",
+    "password":"ahihi"
+}

@@ -43,9 +43,7 @@ function ChatsMessage({
           className="chats__message__inputmess__input"
           placeholder="Enter your message here"
           value={messageInput}
-          onChange={(e: ChangeEvent<HTMLInputElement>): void =>
-            handleChangeInput(e)
-          }
+          onChange={(e) => handleChangeInput(e)}
         />
         <button type="submit" className="chats__message__inputmess__sendicon">
           <span className="chats__message__inputmess__sendicon__text">

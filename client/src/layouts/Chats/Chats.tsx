@@ -13,24 +13,24 @@ function Chats() {
   const [message, setMessage] = useState<string>("");
   const [idSocket, setIdSocket] = useState<string>("");
 
-  // useEffect(() => {
-  //   socket.on("connect", () => {
-  //     console.log("connect Client success");
-  //   });
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("connect Client success");
+    });
 
-  //   socket.on("getId", (id: string) => {
-  //     setIdSocket(id);
-  //   });
+    socket.on("getId", (id: string) => {
+      setIdSocket(id);
+    });
 
-  //   socket.on("sentDataServer", (data) => {
-  //     console.log(data);
-  //     setMess((messageOld) => [...messageOld, data]);
-  //   });
+    socket.on("sentDataServer", (data) => {
+      console.log(data);
+      setMess((messageOld) => [...messageOld, data]);
+    });
 
-  //   return () => {
-  //     socket.disconnect();
-  //   };
-  // }, []);
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   console.log(message);
 

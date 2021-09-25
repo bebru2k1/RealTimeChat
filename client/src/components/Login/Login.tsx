@@ -1,10 +1,8 @@
-import React, {
-  ChangeEvent,
-  Dispatch,
-  FormEvent,
-  SetStateAction,
-  useState,
-} from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
+import { useHistory } from "react-router";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { authSelector, signin } from "../../features/AuthSlice";
+
 interface LoginProps {
   setTypeSign: (value: "signin" | "signup") => void;
 }
@@ -12,19 +10,27 @@ interface DataLogin {
   email: string;
   password: string;
 }
+
 function Login({ setTypeSign }: LoginProps) {
   const [dataForm, setDataForm] = useState<DataLogin>({
     email: "",
     password: "",
   });
+
+  const { user, isAuthenticated } = useAppSelector(authSelector);
+
+  const dispatch = useAppDispatch();
+
   const handleSubmitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    dispatch(signin(dataForm));
   };
   const handleChangForm = (e: ChangeEvent<HTMLInputElement>) => {
     setDataForm({ ...dataForm, [e.target.name]: e.target.value } as {
       [K in keyof DataLogin]: DataLogin[K];
     });
   };
+
   return (
     <div className="home__container__right">
       <div className="home__container__right__header">
@@ -62,10 +68,10 @@ function Login({ setTypeSign }: LoginProps) {
           value={dataForm.password}
           name="password"
           type="password"
-          placeholder=""
+          placeholder="6+ characters"
           className="home__container__right__form__passwordinput home__container__right__form__input"
         />
-        <button className="home__container__right__form__button">
+        <button type="submit" className="home__container__right__form__button">
           Sign In
         </button>
       </form>
