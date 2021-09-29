@@ -10,6 +10,7 @@ $syntax-fn: #00beff;
   border-radius: 10px;
   align-items: center;
   padding: 10px;
+  justify-content: space-around;
 }
 .singleuserview:nth-child(1) {
   background-color: $color-decorative;
@@ -22,7 +23,7 @@ $syntax-fn: #00beff;
   color: white;
 }
 .userview {
-  width: 30%;
+  width: 20%;
   &__img {
     & img {
       width: 7rem;
@@ -36,7 +37,7 @@ $syntax-fn: #00beff;
   }
 }
 .usercontent {
-  width: 70%;
+  width: 80%;
   text-align: left;
   font-size: 1.8rem;
 }

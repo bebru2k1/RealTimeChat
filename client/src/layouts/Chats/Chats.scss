@@ -1,6 +1,6 @@
 $padding-user: 20px;
 $padding-header: 10px;
-$width-user: 500px;
+$width-user: 40%;
 $color-decorative: #6ac;
 $color-gray-900: #d9e0e8;
 $color-gray-1000: #f2f5f7;
@@ -12,6 +12,8 @@ $height-chats: 100vh;
   display: flex;
   justify-content: space-between;
   max-height: $height-chats;
+  max-width: 950px;
+  margin: 0 auto;
   &__user {
     flex-basis: $width-user;
     padding-left: $padding-user;
@@ -87,9 +89,10 @@ $height-chats: 100vh;
     height: calc(#{$height-chats} - 520px);
     overflow-y: scroll;
     &__title {
-      font-size: 2rem;
-      font-weight: bold;
+      font-size: 1.8rem;
+      font-weight: 900;
       text-align: left;
+      margin-left: 20px;
       padding-bottom: 20px;
     }
     &__singleuser {

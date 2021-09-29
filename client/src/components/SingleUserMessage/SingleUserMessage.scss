@@ -2,6 +2,7 @@ $color-gray-1000: #f2f5f7;
 .usermessage {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   padding: 10px;
   cursor: pointer;
   &__left {
@@ -30,7 +31,6 @@ $color-gray-1000: #f2f5f7;
   }
   &__right__name {
     text-align: left;
-    margin-left: 20px;
   }
   &__right__message {
     opacity: 0.5;

@@ -2,8 +2,8 @@ $color-gray-700: #9ca8b4;
 .message {
   display: flex;
   align-items: start;
-  margin: 10px 0;
-  padding: 20px;
+  margin: 5px 0;
+
   &__user {
     &__image {
       width: 50px;
@@ -41,9 +41,10 @@ $color-gray-700: #9ca8b4;
   }
   .message__message__content {
     border-radius: 10px;
-    max-height: 200px;
+    max-height: 100px;
     background-color: black;
-    padding: 15px 10px;
+    padding: 10px 10px;
     color: white;
+    font-size: 1.4rem;
   }
 }

@@ -1,31 +1,38 @@
 import React, { useState } from "react";
+import ButtonCreateConv from "../ButtonCreateConv/ButtonCreateConv";
 import "./SingleUserMessage.scss";
 
 interface SingleUserMessageProps {
-  id: number;
   image: string;
   name: string;
   className?: string;
-  handleClick(id: number): void;
-  idUser: number;
+  idConv: string;
+  handleClick: (id: string) => void;
+  idConvCurrent: string;
 }
 
 function SingleUserMessage({
-  id,
+  idConv,
   image,
   name,
   className = "",
   handleClick,
-  idUser,
-}: SingleUserMessageProps) {
+  idConvCurrent,
+}: // handleClick,
+// idUser,
+SingleUserMessageProps) {
   return (
     <div
       className={
-        idUser === id
+        idConvCurrent === idConv
           ? `${className} usermessage active`
           : `${className} usermessage`
       }
-      onClick={() => handleClick(id)}
+      onClick={() => {
+        if (handleClick) {
+          handleClick(idConv);
+        }
+      }}
     >
       <div className="usermessage__left">
         <img src={image} alt="" className="usermessage__left__image" />

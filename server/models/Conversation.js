@@ -3,15 +3,14 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const Conversation = new Schema({
-    members: [{ type: Schema.Types.ObjectId, required: true, ref="users" }],
+    members: [{ type: Schema.Types.ObjectId, ref: 'users' }],
     messages: [
         {
-            sender: { type: Schema.Types.ObjectId, ref="users" },
-            message: String,
-            time: Date.now()
+            sender: { type: Schema.Types.ObjectId, ref: 'users' },
+            message: { type: String },
+            time: { type: Date, default: new Date() }
         }
     ]
-
 }, {
     timestamps: true
 })

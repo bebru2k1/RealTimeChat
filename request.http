@@ -2,7 +2,7 @@ POST http://localhost:5000/v1/api/user/signup
 Content-Type: application/json
 
 {
-    "email":"toxic4",
+    "email":"aurora",
     "password":"ahihi"
 }
 
@@ -14,3 +14,11 @@ Content-Type: application/json
     "email":"toxic3",
     "password":"ahihi"
 }
+###
+GET http://localhost:5000/v1/api/user/aurora
+Content-Type: application/json
+
+###
+GET http://localhost:5000/v1/api/conversation/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDA0Mzg4MGMyMGE1YjE5MTFhNzEzMiIsImlhdCI6MTYzMjc1NTE2MH0.1Wfwq0SUKN-LNKMPF_xTZxhcV8c_C9Mx4XjhacUKuhg

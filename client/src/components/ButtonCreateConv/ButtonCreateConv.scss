@@ -1,0 +1,10 @@
+$syntax-fn: #00beff;
+.btncreateconv {
+  font-size: 1.5rem;
+  font-weight: 400;
+  background-color: rgba(0, 190, 255, 0.1);
+  padding: 8px;
+  color: $syntax-fn;
+  border-radius: 10px;
+  cursor: pointer;
+}

@@ -4,11 +4,33 @@ const argon2 = require('argon2')
 const db = require('../models')
 const User = db.User
 const jwt = require('jsonwebtoken')
+const { verifyToken } = require('../middleware/verifyToken')
 // @public
 // /v1/api/user/
 // Get User
-route.get('/', (req, res) => {
-    res.send('ahihi')
+route.get('/:email', verifyToken, async (req, res) => {
+    const { email } = req.params
+    if (!email) return res.status(400).json({
+        success: false,
+        message: "Missing Data"
+    })
+
+    const user = await User.findOne({ email }).select('-password')
+
+    console.log(user)
+    if (!user) return res.status(400).json({
+        success: false, message: "Not find user by email"
+    })
+
+    //Check user diffrent userget
+    if (!user._id.equals(req.userId)) {
+        res.status(200).json({
+            success: true,
+            message: "Get user success",
+            user
+        })
+    }
+
 })
 
 // @public

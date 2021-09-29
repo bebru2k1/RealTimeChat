@@ -38,6 +38,7 @@ io.on("connection", (socket) => {
     socket.emit('getId', socket.id)
 
     socket.on("sentDataClient", (data) => {
+        console.log(data)
         io.emit("sentDataServer", data)
     })
 });
