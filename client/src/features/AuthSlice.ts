@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
-import axios from "axios";
+import axios from "../configs/axios";
 import setAuthToken from "../config/setAuthToken";
 import { tokenLocalStorage } from "../config/setLocalStorage";
+import { toast } from "react-toastify";
 
 export interface User {
   email: string;
@@ -35,9 +36,13 @@ export const signin = createAsyncThunk(
   "/auth/sigin",
   async (dataForm: { email: string; password: string }) => {
     try {
-      const response = await axios.post<ResponseDataLogin>(
-        "http://localhost:5000/v1/api/user/signin",
-        dataForm
+      const response = await toast.promise(
+        axios.post<ResponseDataLogin>("/user/signin", dataForm),
+        {
+          pending: "Login...",
+          success: "Successful Login 👌",
+          error: "Error Login 🤯",
+        }
       );
       if (response.data.success) {
         tokenLocalStorage.setToken("chattoken", response.data.accessToken);
@@ -56,9 +61,7 @@ export const getUser = createAsyncThunk(
   "/auth/getUser",
   async (searchValue: string, thunkApi) => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/v1/api/user/${searchValue}`
-      );
+      const response = await axios.get(`/user/${searchValue}`);
       if (response.status === 200) {
         thunkApi.dispatch(setDataGetUser(response.data.user));
       }

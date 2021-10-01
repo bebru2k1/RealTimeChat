@@ -11,11 +11,14 @@ const Conversation = require('../models/Conversation')
 // /v1/api/conversation/
 // Get User
 route.get('/', verifyToken, async (req, res) => {
+
     const userId = req.userId
+
     const populateMembers = {
         path: 'members',
         select: '-password'
     }
+
     const populateMessages = {
         path: 'messages',
         populate: {
@@ -23,6 +26,7 @@ route.get('/', verifyToken, async (req, res) => {
             select: '-password'
         }
     }
+
     // find conversation include req.userId
     const conversation = await Conversation.find({ members: { $all: req.userId } }).populate([populateMembers, populateMessages]).sort({ 'messages.time': 1 })
 

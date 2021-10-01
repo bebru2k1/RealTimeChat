@@ -8,6 +8,7 @@ $height-user-header: 50px;
 $height-user-container: 250px;
 $height-user-search: 40px;
 $height-chats: 100vh;
+$syntax-fn: #00beff;
 .chats {
   display: flex;
   justify-content: space-between;
@@ -128,6 +129,19 @@ $height-chats: 100vh;
     flex-basis: $width-user;
     height: 100vh;
   }
+  // &__addgroup {
+  //   background-color: rgba(0, 190, 255, 0.3);
+  //   color: rgb(0, 190, 255);
+  // }
+}
+.chats__user__usermess__addgroup {
+  background-color: rgba(0, 190, 255, 0.1);
+  color: rgb(0, 190, 255);
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
 .chats .bordergray {
   background-color: $color-gray-1000;

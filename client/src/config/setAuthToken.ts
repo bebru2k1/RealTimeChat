@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../configs/axios";
 const setAuthToken = (token: string | null) => {
   if (token) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;

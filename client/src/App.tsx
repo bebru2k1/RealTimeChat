@@ -7,6 +7,7 @@ import Chats from "./layouts/Chats/Chats";
 import ProtectedRoute from "./route/ProtectedRoute";
 import { useAppSelector } from "./app/hooks";
 import { authSelector } from "./features/AuthSlice";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { isAuthenticated } = useAppSelector(authSelector);
@@ -25,6 +26,18 @@ function App() {
         )}
         <ProtectedRoute path="/chats" component={Chats} />
       </Switch>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }

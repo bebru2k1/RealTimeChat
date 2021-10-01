@@ -27,7 +27,7 @@ import {
 } from "../../features/ConversationSlice";
 import SpinnerCricle from "../../components/SpinnerCricle/SpinnerCricle";
 import socket from "../../configs/socket";
-import { toast, ToastContainer } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 function Chats() {
   //Redux Hooks
@@ -167,23 +167,11 @@ function Chats() {
               className="chats__user__usermess__singleuser"
             />
           ))}
+          <span className="chats__user__usermess__addgroup">+ Add Group</span>
         </div>
       </div>
 
       <ChatsMessage idUser={idConversation} idConversation={idConversation} />
-
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
       {/* <ChatsData id={idUser} className="chats__data" /> */}
     </div>
   );

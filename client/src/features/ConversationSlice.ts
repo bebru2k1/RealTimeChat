@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "../configs/axios";
 import { RootState } from "../app/store";
 import { User } from "./AuthSlice";
 
@@ -40,18 +40,13 @@ const initialState: ConversationState = {
 export const createConv = createAsyncThunk(
   "/conversation/create",
   async (dataConv: PropsCreateConv) => {
-    const response = await axios.post(
-      "http://localhost:5000/v1/api/conversation/",
-      dataConv
-    );
+    const response = await axios.post("/conversation/", dataConv);
     console.log(response.data);
   }
 );
 
 export const findConv = createAsyncThunk("/conversation/find", async () => {
-  const response = await axios.get<ResponseFindConv>(
-    "http://localhost:5000/v1/api/conversation/"
-  );
+  const response = await axios.get<ResponseFindConv>("/conversation/");
   return response.data;
 });
 
