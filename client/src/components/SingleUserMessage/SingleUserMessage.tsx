@@ -21,6 +21,7 @@ function SingleUserMessage({
 }: // handleClick,
 // idUser,
 SingleUserMessageProps) {
+  const [sended, setSended] = useState(false);
   return (
     <div
       className={
@@ -32,6 +33,7 @@ SingleUserMessageProps) {
         if (handleClick) {
           handleClick(idConv);
         }
+        setSended(true);
       }}
     >
       <div className="usermessage__left">
@@ -40,6 +42,8 @@ SingleUserMessageProps) {
       <div className="usermessage__right">
         <p className="usermessage__right__name">{name}</p>
       </div>
+      <div></div>
+      {/* <div className="usermessage__number">{!sended && "New"}</div> */}
     </div>
   );
 }

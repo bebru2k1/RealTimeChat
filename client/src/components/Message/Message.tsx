@@ -1,18 +1,19 @@
 import React from "react";
 import { useAppSelector } from "../../app/hooks";
-import { authSelector } from "../../features/AuthSlice";
+import { authSelector, User } from "../../features/AuthSlice";
 import "./Message.scss";
 interface MessageProps {
-  own: boolean;
+  // own: boolean;
   message: string;
+  sender: User;
 }
-function Message({ own, message }: MessageProps) {
-  console.log(message);
+function Message({ message, sender }: MessageProps) {
   const { user } = useAppSelector(authSelector);
+  const own = sender.email === user?.email;
   return (
     <div className={own ? `message own` : "message"}>
       <div className="message__user">
-        <img src={user?.image} alt="" className="message__user__image" />
+        <img src={sender?.image} alt="" className="message__user__image" />
       </div>
       <div className="message__message">
         <div className="message__message__content">{message}</div>

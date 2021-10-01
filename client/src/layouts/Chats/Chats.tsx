@@ -26,7 +26,9 @@ import {
   findConv,
 } from "../../features/ConversationSlice";
 import SpinnerCricle from "../../components/SpinnerCricle/SpinnerCricle";
-
+import socket from "../../configs/socket";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Chats() {
   //Redux Hooks
   const dispatch = useAppDispatch();
@@ -72,6 +74,11 @@ function Chats() {
   useEffect(() => {
     dispatch(findConv());
   }, []);
+
+  useEffect(() => {
+    const listIdConv = conversationData?.map((conv) => conv._id);
+    socket.emit("ID_CONV", listIdConv);
+  }, [conversationData]);
 
   const handleClick = (id: string): void => {
     setIdConversation(id);
@@ -163,8 +170,20 @@ function Chats() {
         </div>
       </div>
 
-      <ChatsMessage idUser={idConversation} />
+      <ChatsMessage idUser={idConversation} idConversation={idConversation} />
 
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       {/* <ChatsData id={idUser} className="chats__data" /> */}
     </div>
   );

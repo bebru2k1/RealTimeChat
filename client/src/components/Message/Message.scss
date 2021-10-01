@@ -6,8 +6,8 @@ $color-gray-700: #9ca8b4;
 
   &__user {
     &__image {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       object-fit: cover;
       border-radius: 50%;
     }
@@ -17,9 +17,11 @@ $color-gray-700: #9ca8b4;
   }
   &__message__content {
     border-radius: 10px;
-    max-height: 200px;
+    max-height: 100px;
     background-color: white;
-    padding: 15px 10px;
+    padding: 10px 10px;
+    color: black;
+    font-size: 1.4rem;
   }
   &__message__time {
     opacity: 0.5;
@@ -40,11 +42,7 @@ $color-gray-700: #9ca8b4;
     text-align: right;
   }
   .message__message__content {
-    border-radius: 10px;
-    max-height: 100px;
     background-color: black;
-    padding: 10px 10px;
     color: white;
-    font-size: 1.4rem;
   }
 }
