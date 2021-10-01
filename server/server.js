@@ -32,7 +32,7 @@ const io = require("socket.io")(server, {
     origin:
       process.env.NODE_ENV !== "production"
         ? "http://localhost:3000"
-        : "https://real-time-chat-taupe.vercel.app/",
+        : "https://real-time-chat-taupe.vercel.app",
     credentials: true,
   },
 });
